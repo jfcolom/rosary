@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Santo Rosario</title>
+    <style>
+        html, body
+        {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+        }
+        .bead {
+            border: 2px solid #5a3c1a;
+            border-radius: 100px;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+        }
+        .beadmark {
+            opacity: 0.8;
+            background-color: #990000;
+            border-radius: 100px;
+            width: 50%;
+            height: 50%;
+            position: relative;
+            top: 25%;
+            left: 25%;
+            visibility: hidden;
+        }
+        #reading {
+            position: absolute;
+            visibility: hidden;
+            opacity: 0.8;
+            border: 1px solid black;
+            border-radius: 6px;
+            background-color: #94774d;
+            padding: 5px;
+        }
+        #reading_title {
+            font-weight: bold;
+            margin: 10px;
+        }
+        #reading_body {
+            margin: 5px;
+        }
+        #reading_done {
+            text-align: center;
+            margin: 20px;
+        }
+        select {
+            opacity: 0.8;
+            border: 2px solid #5a3c1a;
+            border-radius: 100px;
+            background-color: #94774d;
+            height: 40px;
+        }
+    </style>
+    <script>
+        var readingTitles = [
+            [
+                'I. La anunciación a la Santísima Virgen María', 
+                'II. La visitación de la Santísima Virgen a su prima Santa Isabel', 
+                'III. El nacimiento del Niño Jesús en Belén', 
+                'IV. La presentación del Niño Jesús en el templo', 
+                'V. El Niño Jesús perdido y hallado en el templo'
+            ],
+            [
+                'I. La oración de Jesús en el Huerto', 
+                'II. La ﬂagelación de Jesús', 
+                'III. La coronación de espinas', 
+                'IV. Jesús carga con la cruz', 
+                'V. La crucifixión y muerte de Jesús'
+            ],
+            [
+                'I. La Resurrección de Jesús', 
+                'II. La Ascensión de Jesús a los cielos', 
+                'III. La venida del Espíritu Santo', 
+                'IV. La asunción de Nuestra Señora', 
+                'V. La coronación de Nuestra Señora'
+            ],
+            [
+                'I. El bautismo del Señor', 
+                'II. Su autorevelación en las bodas de Caná', 
+                'III. El anuncio del Reino de Dios, invitando a la conversión', 
+                'IV. La transfiguración', 
+                'V. La institución de la Eucaristía'
+            ]
+        ];
+        var readingTexts = [
+            [
+                '"El ángel le dijo: No temas, María, porque has hallado gracia delante de Dios, vas a concebir en el seno y vas a dar a luz un hijo, a quien pondrás por nombre Jesús. El será grande y será llamado Hijo del Altísimo (...). Dijo María: He aquí la esclava del Señor; hagase en mí según tú palabra". (Lc 1, 30-32, 38).',
+                '"En aquellos días, se levanto María y se fue con prontitud a la región montañosa, a una ciudad de Judá; entró en casa de Zacarías y saludó a Isabel. Y sucedió que, en cuanto oyó Isabel el saludo de María, saltó de gozo el niño en su seno, e Isabel quedó llena del Espíritu Santo; y exclamando con gran voz, dijo: bendita tú entre las mujeres y bendito el fruto de tu vientre; y ¿de donde a mí que la madre de mi Señor venga a visitarme?" (Lc 1, 39-43).',
+                '"Y sucedió que, mientras ellos estaban allí se cumplieron los días del alumbramiento, y dio a luz a su hijo primogénito, le envolvió en pañales y le acostó en un pesebre, porque no tenían sitio en el alojamiento. Había en la misma comarca algunos pastores (...) se les presentó el Ángel del Señor, (...) y les dijo: no temáis, pues os anuncio una gran alegría, (...) os ha nacido (...) un salvador" (Lc 2, 6-11).',
+                '"Llevaron a Jesús a Jerusalén para presentarle al Señor, como está escrito en la Ley del Señor. (...) Y he aquí que había en Jerusalén un hombre llamado Simeón que esperaba la consolación de Israel; y estaba en él el Espíritu Santo. (...) Simeón les bendijo y dijo a María, su madre: Éste está puesto para caída y elevación de muchos en Israel, y para ser señal de contradicción -¡y a ti misma una espada te traspasará el alma!- a fin de que queden al descubierto las intenciones de muchos corazones" (Lc 2, 22-25, 34-35).',
+                '"Sus padres iban todos los años a Jerusalén a la fiesta de la Pascua. (...) Subieron ellos como de costumbre a la fiesta y, al volverse, pasados los días, el niño Jesús se quedó en Jerusalén, sin saberlo sus padres(...). Se volvieron a Jerusalén en su busca(...). Al cabo de tres días, le encontraron en el templo sentado en medio de los maestros, escuchándoles y preguntándoles; todos los que le oían, estaban estupefactos por su inteligencia y sus respuestas" (Lc 2, 41-47).'
+            ],
+            [
+                '"Va Jesús con ellos a una propiedad llamada Getsemaní, y dice a los discípulos: Sentaos aquí, mientras voy allá a orar. Y tomando consigo a Pedro y a los dos hijos de Zebedeo, comenzó a sentir tristeza y angustia. Y adelantándose un poco, cayó rostro en tierra," y dijo: Padre si quieres aparta de mí esta copa, pero no se haga mi voluntad sino la tuya. Y sumido en agonía, insistía más en su oración. Su sudor se hizo como gotas espesas de sangre que caían en tierra" (Mt 26, 36-37; Lc 22, 41-44).',
+                '(Pilato) "volvió a salir donde los judíos y les dijo: Yo no encuentro ningún delito en él (...). ¿Queréis, pues, que os ponga en libertad al Rey de los judíos? Ellos volvieron a gritar diciendo: ¡A ése, no; a Barrabás!  (...)(...) Pilato entonces tomó a Jesús y mandó azotarle" (Jn 18, 38-40; 19, 1).',
+                '(Los soldados) "trenzando una corona de espinas, se la pusieron sobre su cabeza, y en su mano derecha una caña; y doblando la rodilla delante de él, le hacían burla diciendo: ¡Salve, Rey de los judíos!; y después de escupirle, cogieron la caña y le golpeaban en la cabeza" (Mt 27, 29-30).',
+                '"Cuando se hubieron burlado de él, le quitaron el manto, le pusieron sus ropas y le llevaron a crucificarle" (Mt 27, 31). "Y él cargando con su cruz, salió hacia el lugar llamado Calvario". "Y obligaron a uno que pasaba, a Simón de Cirene, (...) a que llevara su cruz" (Jn 19, 17; Mc 15, 21).',
+                '"Llegados al lugar llamado Calvario, le crucificaron. (...) Jesús decía: Padre, perdónales, porque no saben lo que hacen (...). Era ya cerca de la hora sexta cuando, al eclipsarse el sol, hubo oscuridad sobre toda la tierra hasta la hora nona (...). Jesús, dando un fuerte grito, dijo: Padre, en tus manos encomiendo mi espíritu y, dicho esto, expiró." "Como le vieron muerto, no le quebraron las piernas, sino que uno de los soldados le traspasó el costado con una lanza y al instante salió sangre y agua" (Lc 23, 33-34, 44-46; Jn 19, 33-35).'
+            ],
+            [
+                '"El Ángel se dirigió a las mujeres y les dijo: Vosotras no temáis, pues sé que buscáis a Jesús, el Crucificado; no está aquí, ha resucitado, como lo había dicho. Venid, ved el lugar donde estaba. Y ahora id en seguida a decir a sus discípulos: Ha resucitado de entre los muertos" (Mt 28, 5-6).',
+                '(Jesús) "los sacó hasta cerca de Betania y, alzando sus manos, los bendijo. Y sucedió que, mientras los bendecía se separó de ellos y fue llevado al cielo." Después "salieron a predicar por todas partes, colaborando el Señor con ellos y confirmando la Palabra con las señales que la acompañaban" (Lc 24, 50-51; Mc 16, 20).',
+                '"Todos ellos perseveraban en la oración, con un mismo espíritu en de los compañía de algunas mujeres, de María, la madre de Jesús, y de sus hermanos. (...) Al llegar el día de Pentecostés, estaban todos reunidos en un mismo lugar. De repente vino del cielo un ruido (...) que llenó toda la casa en la que se encontraban. Se les aparecieron unas lenguas como de fuego que se repartieron y se posaron sobre cada uno de ellos; quedaron todos llenos del Espíritu Santo y se pusieron a hablar en otras lenguas, según el Espíritu les concedía expresarse" (Hch 1, 14; 2, 1-4)',
+                '"¡Levántate, amada mía, hermosa mía, y vente! Porque, mira, ha pasado ya el invierno, han cesado las lluvias y se han ido. (...) Muéstrame tu semblante, déjame oír tu voz; porque tu voz es dulce, y bello tu semblante" (Ct 2, 10-11, 14).',
+                '"Toda espléndida, la hija del rey, va adentro, con vestidos en oro recamados; con sus brocados es llevada ante el rey." Y "una gran señal apareció en el cielo; una mujer, vestida del sol, con la luna bajo sus pies, y una corona de doce estrellas sobre su cabeza" (Sal. 45, 14-15; Ap 11, 19;12, 1).'
+            ],
+            [
+                '"Entonces aparece Jesús, que viene de Galilea al Jordán donde Juan, para ser bautizado por él (...). Salió luego del agua; y en esto se abrieron los cielos y vio al Espíritu de Dios que bajaba en forma de paloma y venía sobre él. Y una voz que salía de los cielos decía: Este es mi Hijo amado, en quien yo me complazco" (Mt 3, 13, 16-17).',
+                '"Se celebraba una boda en Caná de Galilea y estaba allí la madre de Jesús. Fue invitado también a la boda Jesús con sus discípulos. Y, como faltara vino, porque se había acabado el vino de la boda, le dice a Jesús su madre: No tienen vino. Jesús le responde: ¿Qué tengo yo contigo, mujer? Todavía no ha llegado mi hora. Dice su madre a los sirvientes: Haced lo que él os diga" (Jn 2, 1-5).',
+                '"Marchó Jesús a Galilea; y proclamaba la Buena Nueva de Dios: El tiempo se ha cumplido y el Reino de Dios está cerca; convertíos y creed en la Buena Nueva (...). (Luego) llegan a Cafarnaúm (...) y le vienen a traer a un paralítico. (...) Al no poder presentárselo a causa de la multitud, abrieron el techo (...) y a través de la abertura que hicieron, descolgaron la camilla donde yacía el paralítico. Viendo Jesús la fe de ellos, dice al paralítico: Hijo, tus pecados te son perdonados (...), a ti te digo, levántate, toma tu camilla y vete a tu casa" (Mc 1, 15, 21; 2, 3-11).',
+                '"Seis días después, toma Jesús consigo a Pedro, a Santiago y a su hermano Juan, y los lleva aparte, a un monte alto. Y se transfiguró delante de ellos: su rostro se puso brillante como el sol y sus vestidos se volvieron blancos como la luz. En esto, se les aparecieron Moisés y Elías que conversaban con él. (...) (Y) una nube luminosa los cubrió con su sombra y de la nube salía una voz que decía: Este es mi Hijo amado, en quien me complazco; escuchadle" (Mt 17, 1-3, 5).',
+                '"Sabiendo Jesús, que había llegado su hora de pasar de este mundo al Padre, habiendo amado a los suyos que estaban en el mundo, los amó hasta el extremo". Y "mientras estaban comiendo, tomó Jesús pan y lo bendijo, lo partió y, dándoselo a sus discípulos, dijo: Tomad, comed, éste es mi cuerpo. Tomó luego una copa y, dadas las gracias, se la dió diciendo: bebed de ella todos, porque ésta es mi sangre de la Alianza, que es derramada por muchos para perdón de los pecados" (Jn, 13, 1; Mt 26, 26-29).'
+            ]
+        ];
+    </script>
+    <script>
+        function resetBeads() {
+            document.getElementById('reading').style.visibility = "visible";
+            document.getElementById('b1').style.visibility = "hidden";
+            document.getElementById('b2').style.visibility = "hidden";
+            document.getElementById('b3').style.visibility = "hidden";
+            document.getElementById('b4').style.visibility = "hidden";
+            document.getElementById('b5').style.visibility = "hidden";
+            document.getElementById('b6').style.visibility = "hidden";
+            document.getElementById('b7').style.visibility = "hidden";
+            document.getElementById('b8').style.visibility = "hidden";
+            document.getElementById('b9').style.visibility = "hidden";
+            document.getElementById('b10').style.visibility = "hidden";
+            document.getElementById('b1_m').style.visibility = "hidden";
+            document.getElementById('b2_m').style.visibility = "hidden";
+            document.getElementById('b3_m').style.visibility = "hidden";
+            document.getElementById('b4_m').style.visibility = "hidden";
+            document.getElementById('b5_m').style.visibility = "hidden";
+            document.getElementById('b6_m').style.visibility = "hidden";
+            document.getElementById('b7_m').style.visibility = "hidden";
+            document.getElementById('b8_m').style.visibility = "hidden";
+            document.getElementById('b9_m').style.visibility = "hidden";
+            document.getElementById('b10_m').style.visibility = "hidden";
+        }
+        function startBeads() {
+            document.getElementById('reading').style.visibility = "hidden";
+            document.getElementById('b1').style.visibility = "visible";
+            document.getElementById('b2').style.visibility = "visible";
+            document.getElementById('b3').style.visibility = "visible";
+            document.getElementById('b4').style.visibility = "visible";
+            document.getElementById('b5').style.visibility = "visible";
+            document.getElementById('b6').style.visibility = "visible";
+            document.getElementById('b7').style.visibility = "visible";
+            document.getElementById('b8').style.visibility = "visible";
+            document.getElementById('b9').style.visibility = "visible";
+            document.getElementById('b10').style.visibility = "visible";
+            document.getElementById('b1_m').style.visibility = "hidden";
+            document.getElementById('b2_m').style.visibility = "hidden";
+            document.getElementById('b3_m').style.visibility = "hidden";
+            document.getElementById('b4_m').style.visibility = "hidden";
+            document.getElementById('b5_m').style.visibility = "hidden";
+            document.getElementById('b6_m').style.visibility = "hidden";
+            document.getElementById('b7_m').style.visibility = "hidden";
+            document.getElementById('b8_m').style.visibility = "hidden";
+            document.getElementById('b9_m').style.visibility = "hidden";
+            document.getElementById('b10_m').style.visibility = "hidden";
+        }
+        function setText() {
+            var mType = document.getElementById("misteryTypeSel").selectedIndex;
+            var mNumber = document.getElementById("misteryNumberSel").selectedIndex;
+            var x = document.getElementById("reading_body");
+            x.innerText=readingTexts[mType][mNumber];
+            x = document.getElementById("reading_title");
+            x.innerText=readingTitles[mType][mNumber];
+            resetBeads();
+        }
+        function setTextReset() {
+            document.getElementById("misteryNumberSel").selectedIndex = 0;
+            setText();
+        }
+        function toggleBead(obj) {
+            var x = document.getElementById(obj.id + '_m');
+            if (x.style.visibility === "visible") {
+                x.style.visibility = "hidden";
+            } else {
+                x.style.visibility = "visible";
+            }
+        }
+    </script>
+</head>
+
+<body onload="setTextReset()">
+
+    <div id="reading">
+        <div id="reading_title"></div>
+        <div id="reading_body"></div>
+        <div id="reading_done">
+            <div id="b" class="bead" onclick="startBeads()"><div id="b_m" class="beadmark" style="visibility:inherit"></div></div>
+        </div>
+    </div>
+
+    <table style="background-image:url('img/bkg.jpg');background-size:cover;width:100%;height:100%;border:1px solid black"><tr><td style="text-align:right">
+        <div id="b10" class="bead" onclick="toggleBead(this)"><div id="b10_m" class="beadmark"></div></div>
+    </td><td rowspan="5" style="width:50px">
+        &nbsp;
+    </td><td style="text-align:left">
+        <div id="b1" class="bead" onclick="toggleBead(this)"><div id="b1_m" class="beadmark"></div></div>
+    </td></tr><tr><td style="text-align:center">
+        <div id="b9" class="bead" onclick="toggleBead(this)"><div id="b9_m" class="beadmark"></div></div>
+    </td><td style="text-align:center">
+        <div id="b2" class="bead" onclick="toggleBead(this)"><div id="b2_m" class="beadmark"></div></div>
+    </td></tr><tr><td style="text-align:left">
+        <div id="b8" class="bead" onclick="toggleBead(this)"><div id="b8_m" class="beadmark"></div></div>
+    </td><td style="text-align:right">
+        <div id="b3" class="bead" onclick="toggleBead(this)"><div id="b3_m" class="beadmark"></div></div>
+    </td></tr><tr><td style="text-align:center">
+        <div id="b7" class="bead" onclick="toggleBead(this)"><div id="b7_m" class="beadmark"></div></div>
+    </td><td style="text-align:center">
+        <div id="b4" class="bead" onclick="toggleBead(this)"><div id="b4_m" class="beadmark"></div></div>
+    </td></tr><tr><td style="text-align:right">
+        <div id="b6" class="bead" onclick="toggleBead(this)"><div id="b6_m" class="beadmark"></div></div>
+    </td><td style="text-align:left">
+        <div id="b5" class="bead" onclick="toggleBead(this)"><div id="b5_m" class="beadmark"></div></div>
+    </td></tr><tr><td colspan="5" style="height:1px">
+        <select id="misteryTypeSel" onchange="setTextReset()">
+            <option>Gozosos</option>
+            <option>Dolorosos</option>
+            <option>Gloriosos</option>
+            <option>Luminosos</option>
+        </select>
+        <select id="misteryNumberSel" onchange="setText()">
+            <option>Primero</option>
+            <option>Segundo</option>
+            <option>Tercero</option>
+            <option>Cuarto</option>
+            <option>Quinto</option>
+        </select>
+    </td></tr></table>
+
+</body>
+
+</html>
