@@ -1,4 +1,4 @@
-# rosary
+# Rosary
 Help for praying the christian Holy Rosary (Spanish)
 
 ## Current functionality
