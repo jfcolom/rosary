@@ -7,6 +7,10 @@ This is a very simple app helping christian users to pray the [Rosary](https://e
 It basically shows biblical texts for the mysteries in an ordered way, and simulate beads to count _Hail Mary_ prayers.
 Currently, it only supports Spanish language.
 
+[<img src="https://f-droid.org/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="90">](https://f-droid.org/packages/org.example.rosary/)
+
 ## Development
 
 This is just an HTML page with a background and some CSS layers and Javascript.
