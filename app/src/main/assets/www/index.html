@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Santo Rosario</title>
+    <title>Rosary</title>
     <style>
         html, body
         {
@@ -59,66 +59,136 @@
         }
     </style>
     <script>
-        var readingTitles = [
-            [
-                'I. La anunciación a la Santísima Virgen María', 
-                'II. La visitación de la Santísima Virgen a su prima Santa Isabel', 
-                'III. El nacimiento del Niño Jesús en Belén', 
-                'IV. La presentación del Niño Jesús en el templo', 
-                'V. El Niño Jesús perdido y hallado en el templo'
-            ],
-            [
-                'I. La oración de Jesús en el Huerto', 
-                'II. La ﬂagelación de Jesús', 
-                'III. La coronación de espinas', 
-                'IV. Jesús carga con la cruz', 
-                'V. La crucifixión y muerte de Jesús'
-            ],
-            [
-                'I. La Resurrección de Jesús', 
-                'II. La Ascensión de Jesús a los cielos', 
-                'III. La venida del Espíritu Santo', 
-                'IV. La asunción de Nuestra Señora', 
-                'V. La coronación de Nuestra Señora'
-            ],
-            [
-                'I. El bautismo del Señor', 
-                'II. Su autorevelación en las bodas de Caná', 
-                'III. El anuncio del Reino de Dios, invitando a la conversión', 
-                'IV. La transfiguración', 
-                'V. La institución de la Eucaristía'
-            ]
-        ];
-        var readingTexts = [
-            [
-                '"El ángel le dijo: No temas, María, porque has hallado gracia delante de Dios, vas a concebir en el seno y vas a dar a luz un hijo, a quien pondrás por nombre Jesús. El será grande y será llamado Hijo del Altísimo (...). Dijo María: He aquí la esclava del Señor; hagase en mí según tú palabra". (Lc 1, 30-32, 38).',
-                '"En aquellos días, se levanto María y se fue con prontitud a la región montañosa, a una ciudad de Judá; entró en casa de Zacarías y saludó a Isabel. Y sucedió que, en cuanto oyó Isabel el saludo de María, saltó de gozo el niño en su seno, e Isabel quedó llena del Espíritu Santo; y exclamando con gran voz, dijo: bendita tú entre las mujeres y bendito el fruto de tu vientre; y ¿de donde a mí que la madre de mi Señor venga a visitarme?" (Lc 1, 39-43).',
-                '"Y sucedió que, mientras ellos estaban allí se cumplieron los días del alumbramiento, y dio a luz a su hijo primogénito, le envolvió en pañales y le acostó en un pesebre, porque no tenían sitio en el alojamiento. Había en la misma comarca algunos pastores (...) se les presentó el Ángel del Señor, (...) y les dijo: no temáis, pues os anuncio una gran alegría, (...) os ha nacido (...) un salvador" (Lc 2, 6-11).',
-                '"Llevaron a Jesús a Jerusalén para presentarle al Señor, como está escrito en la Ley del Señor. (...) Y he aquí que había en Jerusalén un hombre llamado Simeón que esperaba la consolación de Israel; y estaba en él el Espíritu Santo. (...) Simeón les bendijo y dijo a María, su madre: Éste está puesto para caída y elevación de muchos en Israel, y para ser señal de contradicción -¡y a ti misma una espada te traspasará el alma!- a fin de que queden al descubierto las intenciones de muchos corazones" (Lc 2, 22-25, 34-35).',
-                '"Sus padres iban todos los años a Jerusalén a la fiesta de la Pascua. (...) Subieron ellos como de costumbre a la fiesta y, al volverse, pasados los días, el niño Jesús se quedó en Jerusalén, sin saberlo sus padres(...). Se volvieron a Jerusalén en su busca(...). Al cabo de tres días, le encontraron en el templo sentado en medio de los maestros, escuchándoles y preguntándoles; todos los que le oían, estaban estupefactos por su inteligencia y sus respuestas" (Lc 2, 41-47).'
-            ],
-            [
-                '"Va Jesús con ellos a una propiedad llamada Getsemaní, y dice a los discípulos: Sentaos aquí, mientras voy allá a orar. Y tomando consigo a Pedro y a los dos hijos de Zebedeo, comenzó a sentir tristeza y angustia. Y adelantándose un poco, cayó rostro en tierra," y dijo: Padre si quieres aparta de mí esta copa, pero no se haga mi voluntad sino la tuya. Y sumido en agonía, insistía más en su oración. Su sudor se hizo como gotas espesas de sangre que caían en tierra" (Mt 26, 36-37; Lc 22, 41-44).',
-                '(Pilato) "volvió a salir donde los judíos y les dijo: Yo no encuentro ningún delito en él (...). ¿Queréis, pues, que os ponga en libertad al Rey de los judíos? Ellos volvieron a gritar diciendo: ¡A ése, no; a Barrabás!  (...)(...) Pilato entonces tomó a Jesús y mandó azotarle" (Jn 18, 38-40; 19, 1).',
-                '(Los soldados) "trenzando una corona de espinas, se la pusieron sobre su cabeza, y en su mano derecha una caña; y doblando la rodilla delante de él, le hacían burla diciendo: ¡Salve, Rey de los judíos!; y después de escupirle, cogieron la caña y le golpeaban en la cabeza" (Mt 27, 29-30).',
-                '"Cuando se hubieron burlado de él, le quitaron el manto, le pusieron sus ropas y le llevaron a crucificarle" (Mt 27, 31). "Y él cargando con su cruz, salió hacia el lugar llamado Calvario". "Y obligaron a uno que pasaba, a Simón de Cirene, (...) a que llevara su cruz" (Jn 19, 17; Mc 15, 21).',
-                '"Llegados al lugar llamado Calvario, le crucificaron. (...) Jesús decía: Padre, perdónales, porque no saben lo que hacen (...). Era ya cerca de la hora sexta cuando, al eclipsarse el sol, hubo oscuridad sobre toda la tierra hasta la hora nona (...). Jesús, dando un fuerte grito, dijo: Padre, en tus manos encomiendo mi espíritu y, dicho esto, expiró." "Como le vieron muerto, no le quebraron las piernas, sino que uno de los soldados le traspasó el costado con una lanza y al instante salió sangre y agua" (Lc 23, 33-34, 44-46; Jn 19, 33-35).'
-            ],
-            [
-                '"El Ángel se dirigió a las mujeres y les dijo: Vosotras no temáis, pues sé que buscáis a Jesús, el Crucificado; no está aquí, ha resucitado, como lo había dicho. Venid, ved el lugar donde estaba. Y ahora id en seguida a decir a sus discípulos: Ha resucitado de entre los muertos" (Mt 28, 5-6).',
-                '(Jesús) "los sacó hasta cerca de Betania y, alzando sus manos, los bendijo. Y sucedió que, mientras los bendecía se separó de ellos y fue llevado al cielo." Después "salieron a predicar por todas partes, colaborando el Señor con ellos y confirmando la Palabra con las señales que la acompañaban" (Lc 24, 50-51; Mc 16, 20).',
-                '"Todos ellos perseveraban en la oración, con un mismo espíritu en de los compañía de algunas mujeres, de María, la madre de Jesús, y de sus hermanos. (...) Al llegar el día de Pentecostés, estaban todos reunidos en un mismo lugar. De repente vino del cielo un ruido (...) que llenó toda la casa en la que se encontraban. Se les aparecieron unas lenguas como de fuego que se repartieron y se posaron sobre cada uno de ellos; quedaron todos llenos del Espíritu Santo y se pusieron a hablar en otras lenguas, según el Espíritu les concedía expresarse" (Hch 1, 14; 2, 1-4)',
-                '"¡Levántate, amada mía, hermosa mía, y vente! Porque, mira, ha pasado ya el invierno, han cesado las lluvias y se han ido. (...) Muéstrame tu semblante, déjame oír tu voz; porque tu voz es dulce, y bello tu semblante" (Ct 2, 10-11, 14).',
-                '"Toda espléndida, la hija del rey, va adentro, con vestidos en oro recamados; con sus brocados es llevada ante el rey." Y "una gran señal apareció en el cielo; una mujer, vestida del sol, con la luna bajo sus pies, y una corona de doce estrellas sobre su cabeza" (Sal. 45, 14-15; Ap 11, 19;12, 1).'
-            ],
-            [
-                '"Entonces aparece Jesús, que viene de Galilea al Jordán donde Juan, para ser bautizado por él (...). Salió luego del agua; y en esto se abrieron los cielos y vio al Espíritu de Dios que bajaba en forma de paloma y venía sobre él. Y una voz que salía de los cielos decía: Este es mi Hijo amado, en quien yo me complazco" (Mt 3, 13, 16-17).',
-                '"Se celebraba una boda en Caná de Galilea y estaba allí la madre de Jesús. Fue invitado también a la boda Jesús con sus discípulos. Y, como faltara vino, porque se había acabado el vino de la boda, le dice a Jesús su madre: No tienen vino. Jesús le responde: ¿Qué tengo yo contigo, mujer? Todavía no ha llegado mi hora. Dice su madre a los sirvientes: Haced lo que él os diga" (Jn 2, 1-5).',
-                '"Marchó Jesús a Galilea; y proclamaba la Buena Nueva de Dios: El tiempo se ha cumplido y el Reino de Dios está cerca; convertíos y creed en la Buena Nueva (...). (Luego) llegan a Cafarnaúm (...) y le vienen a traer a un paralítico. (...) Al no poder presentárselo a causa de la multitud, abrieron el techo (...) y a través de la abertura que hicieron, descolgaron la camilla donde yacía el paralítico. Viendo Jesús la fe de ellos, dice al paralítico: Hijo, tus pecados te son perdonados (...), a ti te digo, levántate, toma tu camilla y vete a tu casa" (Mc 1, 15, 21; 2, 3-11).',
-                '"Seis días después, toma Jesús consigo a Pedro, a Santiago y a su hermano Juan, y los lleva aparte, a un monte alto. Y se transfiguró delante de ellos: su rostro se puso brillante como el sol y sus vestidos se volvieron blancos como la luz. En esto, se les aparecieron Moisés y Elías que conversaban con él. (...) (Y) una nube luminosa los cubrió con su sombra y de la nube salía una voz que decía: Este es mi Hijo amado, en quien me complazco; escuchadle" (Mt 17, 1-3, 5).',
-                '"Sabiendo Jesús, que había llegado su hora de pasar de este mundo al Padre, habiendo amado a los suyos que estaban en el mundo, los amó hasta el extremo". Y "mientras estaban comiendo, tomó Jesús pan y lo bendijo, lo partió y, dándoselo a sus discípulos, dijo: Tomad, comed, éste es mi cuerpo. Tomó luego una copa y, dadas las gracias, se la dió diciendo: bebed de ella todos, porque ésta es mi sangre de la Alianza, que es derramada por muchos para perdón de los pecados" (Jn, 13, 1; Mt 26, 26-29).'
-            ]
-        ];
+        var content = {
+            es: {
+                misteryTypes: ['Gozosos', 'Dolorosos', 'Gloriosos', 'Luminosos'],
+                misteryNumbers: ['Primero', 'Segundo', 'Tercero', 'Cuarto', 'Quinto'],
+                readingTitles: [
+                    [
+                        'I. La Encarnación del Hijo de Dios',
+                        'II. La Visitación de Nuestra Señora a su prima Santa Isabel',
+                        'III. El Nacimiento del Hijo de Dios en el portal de Belén',
+                        'IV. La presentación de Jesús en el Templo',
+                        'V. El Niño Jesús perdido y hallado en el Templo'
+                    ],
+                    [
+                        'I. La oración en el Huerto',
+                        'II. La flagelación de Jesús atado a la columna',
+                        'III. La coronación de espinas',
+                        'IV. Jesús con la Cruz a cuestas camino del Calvario',
+                        'V. La crucifixión y muerte de Jesús'
+                    ],
+                    [
+                        'I. La resurrección del Hijo de Dios',
+                        'II. La Ascensión del Señor al cielo',
+                        'III. La venida del Espíritu Santo',
+                        'IV. La Asunción de María al cielo',
+                        'V. La coronación de María como Reina y Señora de todo lo creado'
+                    ],
+                    [
+                        'I. El Bautismo en el Jordán',
+                        'II. Las bodas de Caná',
+                        'III. El anuncio del Reino de Dios',
+                        'IV. La Transfiguración',
+                        'V. La institución de la Eucaristía'
+                    ]
+                ],
+                readingTexts: [
+                    [
+                        '«Al sexto mes el ángel Gabriel fue enviado por Dios a una ciudad de Galilea, llamada Nazaret, a una virgen desposada con un hombre llamado José, de la estirpe de David; el nombre de la virgen era María» (Lc 1,26-27).',
+                        '«En aquellos días María se puso en camino y fue aprisa a la región montañosa, a una ciudad de Judá; entró en casa de Zacarías y saludó a Isabel. Y sucedió que, en cuanto Isabel oyó el saludo de María, saltó de gozo el niño en su seno, e Isabel quedó llena de Espíritu Santo; y exclamando a voz en grito, dijo: "Bendita tú entre las mujeres y bendito el fruto de tu seno"» (Lc 1, 39-42).',
+                        '«Sucedió que por aquellos días salió un edicto de César Augusto ordenando que se empadronase todo el mundo. Este primer empadronamiento tuvo lugar siendo Cirino gobernador de Siria. Iban todos a empadronarse, cada uno a su ciudad. Subió también José desde Galilea, de la ciudad de Nazaret, a Judea, a la ciudad de David, que se llama Belén, por ser él de la casa y familia de David, para empadronarse con María, su esposa, que estaba encinta. Y sucedió que, mientras ellos estaban allí, se le cumplieron los días del alumbramiento, y dio a luz a su hijo primogénito, le envolvió en pañales y le acostó en un pesebre, porque no tenían sitio en el alojamiento» (Lc 2,1-7).',
+                        '«Cuando se cumplieron los ocho días para circuncidarle, se le dio el nombre de Jesús, como lo había llamado el ángel antes de ser concebido en el seno. Cuando se cumplieron los días de la purificación de ellos, según la Ley de Moisés, llevaron a Jesús a Jerusalén para presentarle al Señor, como está escrito en la Ley del Señor: Todo varón primogénito será consagrado al Señor y para ofrecer en sacrificio un par de tórtolas o dos pichones, conforme a lo que se dice en la Ley del Señor» (Lc 2, 21-24).',
+                        '«Sus padres iban todos los años a Jerusalén a la fiesta de la Pascua. Cuando tuvo doce años, subieron ellos como de costumbre a la fiesta y, al volverse, pasados los días, el niño Jesús se quedó en Jerusalén, sin saberlo sus padres... Y sucedió que al cabo de tres días, le encontraron en el Templo sentado en medio de los maestros, escuchándoles y preguntándoles; todos los que le oían, estaban estupefactos por su inteligencia y sus respuestas» (Lc 2, 41-47).'
+                    ],
+                    [
+                        '«Entonces Jesús fue con ellos a un huerto, llamado Getsemaní, y dijo a sus discípulos: "Sentaos aquí mientras voy a orar". Y tomando consigo a Pedro y a los dos hijos de Zebedeo, comenzó a sentir tristeza y angustia. Entonces les dijo: "Mi alma está triste hasta el punto de morir; quedaos aquí y velad conmigo". Y adelantándose un poco, cayó rostro en tierra, y suplicaba así: "Padre mío, si es posible, que pase de mí esta copa, pero no sea como yo quiero, sino como quieras tú"» (Mt 26, 36-39).',
+                        '«Pilato entonces tomó a Jesús y mandó azotarle. Los soldados trenzaron una corona de espinas, se la pusieron en la cabeza y le vistieron un manto de púrpura; y, acercándose a él, le decían: "Salve, Rey de los judíos". Y le daban bofetadas» (Jn 19,1-3).',
+                        '«Entonces los soldados del procurador llevaron consigo a Jesús al pretorio y reunieron alrededor de él a toda la cohorte. Lo desnudaron y le echaron encima un manto de púrpura y, trenzando una corona de espinas, se la pusieron sobre la cabeza, y en su mano derecha una caña, y doblando la rodilla delante de él, le hacían burla diciendo: "Salve, Rey de los judío"» (Mt 27, 27-29).',
+                        '«Y obligaron a uno que pasaba, a Simón de Cirene, que volvía del campo, el padre de Alejandro y de Rufo, a que llevara su cruz. Lo condujeron al lugar del Gólgota, que quiere decir de la "Calavera"» (Mc 15, 21-22).',
+                        '«Llegados al lugar llamado "La Calavera", le crucificaron allí a él y a los dos malhechores, uno a la derecha y otro a la izquierda. Jesús decía: "Padre, perdónales, porque no saben lo que hacen"... Era ya eso de mediodía cuando, al eclipsarse el sol, hubo oscuridad sobre toda la tierra hasta la media tarde. El velo del Santuario se rasgó por medio y Jesús, dando un fuerte grito dijo: "Padre, en tus manos pongo mis espíritu" y, dicho esto, expiró» (Lc  23, 33-46).'
+                    ],
+                    [
+                        '«El primer día de la semana, muy de mañana, fueron al sepulcro llevando los aromas que habían preparado. Pero encontraron que la piedra había sido retirada del sepulcro, y entraron, pero no hallaron el cuerpo del Señor Jesús. No sabían que pensar de esto, cuando se presentaron ante ellas dos hombres con vestidos resplandecientes. Ellas, despavoridas, miraban al suelo, y ellos les dijeron: "¿Por qué buscáis ente los muertos al que está vivo? No está aquí, ha resucitado"» (Lc 24, 1-6).',
+                        '«El Señor Jesús, después de hablarles, ascendió al cielo y se sentó a la derecha de Dios» (Mc 16, 19).',
+                        '«Al llegar el día de Pentecostés, estaban todos reunidos en un mismo lugar. De repente vino del cielo un ruido como el de una ráfaga de viento impetuoso, que llenó toda la casa en la que se encontraban. Se les aparecieron unas lenguas como de fuego que se repartieron y se posaron sobre cada uno de ellos; quedaron todos llenos del Espíritu Santo y se pusieron a hablar en otras lenguas, según el Espíritu les concedía expresarse» (Hch 2, 1-4).',
+                        '«Todas las generaciones me llamarán bienaventurada porque el Señor ha hecho obras grandes en mí» (Lc 1, 48-49).',
+                        '«Una gran señal apareció en el cielo: una mujer, vestida de sol, con la luna bajo sus pies, y una corona de doce estrellas sobre su cabeza» (Ap 12, 1).'
+                    ],
+                    [
+                        '«Bautizado Jesús, salió luego del agua; y en esto se abrieron los cielos y vio al Espíritu de Dios que bajaba en forma de paloma y venía sobre él. Y una voz que salía de los cielos decía: "Este es mi Hijo amado, en quien me complazco"» (Mt 3,16-17).',
+                        '«Tres días después se celebraba una boda en Caná de Galilea y estaba allí la madre de Jesús. Fue invitado también a la boda Jesús con sus discípulos. Y, como faltara vino, porque se había acabado el vino de la boda, le dice a Jesús su madre: "No tienen vino". Jesús le responde: "¿Qué tengo yo contigo, mujer? Todavía no ha llegado mi hora". Dice su madre a los sirvientes: "Haced lo que él os diga"» (Jn 2, 1-5).',
+                        '«El tiempo se ha cumplido y el Reino de Dios está cerca; convertíos y creed en el Evangelio» (Mc 1, 15).',
+                        '«Seis días después, Jesús tomó consigo a Pedro, a Santiago y a su hermano Juan, y los llevó aparte, a un monte alto. Y se transfiguró delante de ellos: su rostro se puso brillante como el sol y sus vestidos se volvieron blancos como la luz» (Mt 17, 1-2).',
+                        '«Mientras estaban comiendo, tomó Jesús pan y lo bendijo, lo partió y, dándoselo a sus discípulos, dijo: "Tomad, comed, éste es mi cuerpo"» (Mt 26, 26).'
+                    ]
+                ]
+            },
+            en: {
+                misteryTypes: ['Joyful', 'Sorrowful', 'Glorious', 'Luminous'],
+                misteryNumbers: ['First', 'Second', 'Third', 'Fourth', 'Fifth'],
+                readingTitles: [
+                    [
+                        'I. The Annunciation',
+                        'II. The Visitation',
+                        'III. The Birth of Our Lord',
+                        'IV. The Presentation in the Temple',
+                        'V. The finding of Jesus in the temple'
+                    ],
+                    [
+                        'I. The agony in the Garden',
+                        'II. The scourging at the pillar',
+                        'III. The crowning with thorns',
+                        'IV. The carrying of the cross',
+                        'V. The crucifixion'
+                    ],
+                    [
+                        'I. The Resurrection',
+                        'II. The Ascension',
+                        'III. The descent of the Holy Spirit',
+                        'IV. The Assumption',
+                        'V. The crowning of Our Lady Queen of Heaven'
+                    ],
+                    [
+                        'I. The Baptism in the Jordan',
+                        'II. The wedding feast of Cana',
+                        'III. The proclamation of the kingdom of God',
+                        'IV. The Transfiguration',
+                        'V. The institution of the Eucharist'
+                    ]
+                ],
+                readingTexts: [
+                    [
+                        '"In the sixth month the angel Gabriel was sent from God to a city of Galilee named Nazareth, to a virgin betrothed to a man whose name was Joseph, of the house of David; and the virgin\'s name was Mary" (Lk 1:26-27).',
+                        '"In those days Mary arose and went with haste into the hill country, to a city of Judah, and she entered the house of Zechariah and greeted Elizabeth. And when Elizabeth heard the greeting of Mary, the babe leaped in her womb; and Elizabeth was filled with the Holy Spirit and she exclaimed with a loud cry, \'Blessed are you among women, and blessed is the fruit of your womb!\'" (Lk 1:39-42).',
+                        '"In those days a decree went out from Caesar Augustus that all the world should be enrolled. This was the first enrolment, when Quirinius was governor of Syria. And all went to be enrolled, each to his own city. And Joseph also went up from Galilee, from the city of Nazareth, to Judea, to the city of David, which is called Bethlehem, because he was of the house and lineage of David, to be enrolled with Mary, his betrothed, who was with child. And while they were there, the time came for her to be delivered. And she gave birth to her first-born son and wrapped him in swaddling cloths, and laid him in a manger, because there was no place for them in the inn" (Lk 2:1-7).',
+                        '"And at the end of eight days, when he was circumcised, he was called Jesus, the name given by the angel before he was conceived in the womb. And when the time came for their purification according to the law of Moses, they brought him up to Jerusalem to present him to the Lord (as it is written in the law of the Lord, \'Every male that opens the womb shall be called holy to the Lord\') and to offer a sacrifice according to what is said in the law of the Lord, \'a pair of turtledoves, or two young pigeons\'" (Lk 2:21-24).',
+                        '"Now his parents went to Jerusalem every year at the feast of the Passover. And when he was twelve years old, they went up according to custom; and when the feast was ended, as they were returning, the boy Jesus stayed behind in Jerusalem. His parents did not know it... After three days they found him in the temple, sitting among the teachers, listening to them and asking them questions; and all who heard him were amazed at his understanding and his answers" (Lk 2:41-47).'
+                    ],
+                    [
+                        '"Then Jesus went with them to a place called Gethsemane, and he said to his disciples, \'Sit here, while I go yonder and pray\'. And taking with him Peter and the two sons of Zebedee, he began to be sorrowful and troubled. Then he said to them, \'My soul is very sorrowful, even to death; remain here, and watch with me\'. And going a little farther he fell on his face and prayed, \'My Father, if it be possible, let this cup pass from me; nevertheless, not as I will, but as you will\'" (Mt 26:36-39).',
+                        '"Then Pilate took Jesus and scourged him. And the soldiers plaited a crown of thorns, and put it on his head, and arrayed him in a purple robe; they came up to him, saying, \'Hail, King of the Jews!\' and struck him with their hands" (Jn 19:1-3).',
+                        '"Then the soldiers of the governor took Jesus into the praetorium, and they gathered the whole battalion before him. And they stripped him and put a scarlet robe upon him, and plaiting a crown of thorns they put it on his head, and put a reed in his right hand. And kneeling before him they mocked him, saying, \'Hail, King of the Jews!\'" (Mt 27:27-29).',
+                        '"And they compelled a passer-by, Simon of Cyrene, who was coming in from the country, the father of Alexander and Rufus, to carry his cross. And they brought him to the place called Golgotha (which means the place of a skull)" (Mk 15:21-22).',
+                        '"And when they came to the place which is called The Skull, there they crucified him, and the criminals, one on the right and one on the left. And Jesus said, \'Father, forgive them; for they know not what they do\'... It was now about the sixth hour, and there was darkness over the whole land until the ninth hour, while the sun\'s light failed; and the curtain of the temple was torn in two. Then Jesus, crying with a loud voice, said, \'Father, into thy hands I commit my spirit!\' And having said this he breathed his last" (Lk 23:33-46).'
+                    ],
+                    [
+                        '"But on the first day of the week, at early dawn, they went to the tomb, taking the spices which they had prepared. And they found the stone rolled away from the tomb, but when they went in they did not find the body. While they were perplexed about this, behold, two men stood by them in dazzling apparel; and as they were frightened and bowed their faces to the ground, the men said to them, \'Why do you seek the living among the dead? He is not here, but has risen\'" (Lk 24:1-5).',
+                        '"So then the Lord Jesus, after he had spoken to them, was taken up into heaven, and sat down at the right hand of God" (Mk 16:19).',
+                        '"When the day of Pentecost had come, they were all together in one place. And suddenly a sound came from heaven like the rush of a mighty wind, and it filled all the house where they were sitting. And there appeared to them tongues as of fire, distributed and resting on each one of them. And they were all filled with the Holy Spirit and began to speak in other tongues, as the Spirit gave them utterance" (Acts 2:1-4).',
+                        '"Henceforth all generations will call me blessed; for he who is mighty has done great things for me" (Lk 1:48-49).',
+                        '"And a great portent appeared in heaven, a woman clothed with the sun, with the moon under her feet, and on her head a crown of twelve stars" (Rev 12:1 ).'
+                    ],
+                    [
+                        '"And when Jesus was baptized, he went up immediately from the water, and behold, the heavens were opened and he saw the Spirit of God descending like a dove, and alighting on him; and lo, a voice from heaven, saying, \'This is my beloved Son, with whom I am well-pleased\'" (Mt 3:16-17).',
+                        '"On the third day there was a marriage at Cana in Galilee, and the mother of Jesus was there; Jesus also was invited to the marriage, with his disciples. When the wine failed, the mother of Jesus said to him, \'They have no wine\'. And Jesus said to her, \'O woman, what have you to do with me? My hour has not yet come\'. His mother said to the servants, \'Do whatever he tells you\'" (Jn 2:1-5).',
+                        '"The time is fulfilled, and the kingdom of God is at hand; repent, and believe in the gospel" (Mk 1:15).',
+                        '"And after six days Jesus took with him Peter and James and John his brother, and led them up a high mountain apart. And he was transfigured before them, and his face shone like the sun, and his garments became white as light" (Mt 17:1-2).',
+                        '"Now as they were eating, Jesus took bread, and blessed, and broke it, and gave it to the disciples and said, \'Take, eat; this is my body\'" (Mt 26:26).'
+                    ]
+                ]
+            }
+        };
     </script>
     <script>
         function resetBeads() {
@@ -168,30 +238,44 @@
             document.getElementById('b10_m').style.visibility = "hidden";
         }
         function setText() {
-            var mType = document.getElementById("misteryTypeSel").selectedIndex;
-            var mNumber = document.getElementById("misteryNumberSel").selectedIndex;
-            var x = document.getElementById("reading_body");
-            x.innerText=readingTexts[mType][mNumber];
-            x = document.getElementById("reading_title");
-            x.innerText=readingTitles[mType][mNumber];
+            var langCode = document.getElementById('languageSel').value;
+            var mType = document.getElementById('misteryTypeSel').selectedIndex;
+            var mNumber = document.getElementById('misteryNumberSel').selectedIndex;
+            var x = document.getElementById('reading_body');
+            x.innerText=content[langCode].readingTexts[mType][mNumber];
+            x = document.getElementById('reading_title');
+            x.innerText=content[langCode].readingTitles[mType][mNumber];
             resetBeads();
         }
         function setTextReset() {
-            document.getElementById("misteryNumberSel").selectedIndex = 0;
+            document.getElementById('misteryNumberSel').selectedIndex = 0;
             setText();
         }
         function toggleBead(obj) {
             var x = document.getElementById(obj.id + '_m');
-            if (x.style.visibility === "visible") {
-                x.style.visibility = "hidden";
+            if (x.style.visibility === 'visible') {
+                x.style.visibility = 'hidden';
             } else {
-                x.style.visibility = "visible";
+                x.style.visibility = 'visible';
             }
         }
+        function setOptions() {
+            var langCode = document.getElementById('languageSel').value;
+            for (var i = 0; i < 4; i++) {
+                document.getElementById('misteryTypeSel').options[i].innerHTML = content[langCode].misteryTypes[i];
+            }
+            for (var i = 0; i < 5; i++) {
+                document.getElementById('misteryNumberSel').options[i].innerHTML = content[langCode].misteryNumbers[i];
+            }
+            setText();
+        }
+        function setLang() {
+            document.getElementById('languageSel').value = 'en';
+        }   
     </script>
 </head>
 
-<body onload="setTextReset()">
+<body onload="setLang();setOptions();setTextReset()">
 
     <div id="reading">
         <div id="reading_title"></div>
@@ -201,11 +285,11 @@
         </div>
     </div>
 
-    <table style="background-image:url('img/bkg.jpg');background-size:cover;width:100%;height:100%;border:1px solid black"><tr><td style="text-align:right">
+    <table style="background-image:url('img/bkg.jpg');background-size:cover;width:100%;height:100%;border:1px solid black"><tr><td style="text-align:right; width:45%">
         <div id="b10" class="bead" onclick="toggleBead(this)"><div id="b10_m" class="beadmark"></div></div>
-    </td><td rowspan="5" style="width:50px">
+    </td><td rowspan="5" style="width:10%">
         &nbsp;
-    </td><td style="text-align:left">
+    </td><td style="text-align:left; width:45%">
         <div id="b1" class="bead" onclick="toggleBead(this)"><div id="b1_m" class="beadmark"></div></div>
     </td></tr><tr><td style="text-align:center">
         <div id="b9" class="bead" onclick="toggleBead(this)"><div id="b9_m" class="beadmark"></div></div>
@@ -223,19 +307,24 @@
         <div id="b6" class="bead" onclick="toggleBead(this)"><div id="b6_m" class="beadmark"></div></div>
     </td><td style="text-align:left">
         <div id="b5" class="bead" onclick="toggleBead(this)"><div id="b5_m" class="beadmark"></div></div>
-    </td></tr><tr><td colspan="5" style="height:1px">
+    </td></tr><tr><td style="height:1px" colspan="2">
         <select id="misteryTypeSel" onchange="setTextReset()">
-            <option>Gozosos</option>
-            <option>Dolorosos</option>
-            <option>Gloriosos</option>
-            <option>Luminosos</option>
+            <option></option>
+            <option></option>
+            <option></option>
+            <option></option>
         </select>
         <select id="misteryNumberSel" onchange="setText()">
-            <option>Primero</option>
-            <option>Segundo</option>
-            <option>Tercero</option>
-            <option>Cuarto</option>
-            <option>Quinto</option>
+            <option></option>
+            <option></option>
+            <option></option>
+            <option></option>
+            <option></option>
+        </select>
+    </td><td style="height:1px; text-align:right">
+        <select id="languageSel" onchange="setOptions()">
+            <option value="es">Español</option>
+            <option value="en">English</option>
         </select>
     </td></tr></table>
 
