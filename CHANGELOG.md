@@ -1,4 +1,4 @@
-### v0.2 (in progress)
+### v0.2
  - Multilanguage support (#2)
 
 ### v0.1
