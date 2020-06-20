@@ -1,5 +1,5 @@
 # Rosary
-Help for praying the christian Holy Rosary (Spanish)
+Help for praying the christian Holy Rosary
 
 ## Current functionality
 
