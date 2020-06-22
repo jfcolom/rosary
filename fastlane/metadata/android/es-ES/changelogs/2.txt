@@ -1,0 +1,2 @@
+- Soporte multilenguaje
+- Background del icono de color blanco

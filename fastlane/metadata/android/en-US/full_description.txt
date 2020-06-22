@@ -1,3 +1,1 @@
-This is a very simple app helping christian users to pray the [Rosary](https://en.wikipedia.org/wiki/Rosary).
-It basically shows biblical texts for the mysteries in an ordered way, and simulate beads to count _Hail Mary_ prayers.
-Currently, it supports English and Spanish language. The texts come from [vatican.va](http://www.vatican.va/special/rosary/index_rosary.htm).
+This is a very simple app helping Christian users to pray the Holy Rosary (https://en.wikipedia.org/wiki/Rosary). It basically shows biblical texts for the mysteries in an ordered way, and simulate beads to count "Hail Mary" prayers. The texts come from vatican.va (http://www.vatican.va/special/rosary/index_rosary.htm).

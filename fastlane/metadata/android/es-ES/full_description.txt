@@ -1,0 +1,1 @@
+Se trata de una sencilla app para ayudar a los cristianos en el rezo del Santo Rosario (https://es.wikipedia.org/wiki/Rosario_(catolicismo)). Muestra los textos bíblicos correspondientes a cada misterio de una forma ordenada, y simula las "cuentas" para contar las "Ave Marías". Los textos proceden de vatican.va (http://www.vatican.va/special/rosary/index_rosary_sp.htm).
