@@ -232,13 +232,6 @@ public class CordovaResourceApi {
     public OpenForReadResult openForRead(Uri uri) throws IOException {
         return openForRead(uri, false);
     }
-
-    /*
-     * EcoAndroid: REDUCE SIZE ENERGY PATTERN APPLIED
-     * The goal is to use gzip compression before receiving data
-     * Application changed java file "CordovaResourceApi.java"
-     */
-
     /**
      * Opens a stream to the given URI, also providing the MIME type & length.
      * @return Never returns null.
