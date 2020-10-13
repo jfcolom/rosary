@@ -232,6 +232,7 @@ public class CordovaResourceApi {
     public OpenForReadResult openForRead(Uri uri) throws IOException {
         return openForRead(uri, false);
     }
+
     /**
      * Opens a stream to the given URI, also providing the MIME type & length.
      * @return Never returns null.
